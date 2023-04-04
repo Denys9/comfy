@@ -3,7 +3,7 @@
 int main()
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	//процес входу в аккаунт
+	//РїСЂРѕС†РµСЃ РІС…РѕРґСѓ РІ Р°РєРєР°СѓРЅС‚
 	cout << "=====SIGN IN====="<<endl;
 	string log, pas,namemodel,cardnum,adress;
 	int action,cart=0,paymethod;
@@ -15,15 +15,15 @@ int main()
 	if (log == "admin" && pas == "1111") {
 		isAdmin = true;
 	}
-	Account user(log,pas,isAdmin); // запис інформації
+	Account user(log,pas,isAdmin); // Р·Р°РїРёСЃ С–РЅС„РѕСЂРјР°С†С–С—
 	
 	system("cls");
-	if (isAdmin) { // перевірка на адміна
+	if (isAdmin) { // РїРµСЂРµРІС–СЂРєР° РЅР° Р°РґРјС–РЅР°
 		cout << "You have gained access to the admin functionality.";
 	}
 	else {
 		while (true) {
-			cout << "=====List of products=====" << endl; // меню
+			cout << "=====List of products=====" << endl; // РјРµРЅСЋ
 			Phone model("Iphone 13", "China", "16.3.1", 2023, 5000);
 			model.about();
 			cout << endl;
@@ -39,17 +39,17 @@ int main()
 			cout << "=====================" << endl;
 			while (true) {
 				
-				cout << "Select an action(exit - 0, add to cart - 1, placing an order - 2): "; // функціонал
+				cout << "Select an action(exit - 0, add to cart - 1, placing an order - 2): ";  // С„СѓРЅРєС†С–РѕРЅР°Р»
 				
 				cin >> action;
 				cin.ignore();
-				if (action == 0) { // якщо користувач вводить 0 то программа закривається
+				if (action == 0) { // СЏРєС‰Рѕ РєРѕСЂРёСЃС‚СѓРІР°С‡ РІРІРѕРґРёС‚СЊ 0 С‚Рѕ РїСЂРѕРіСЂР°РјРјР° Р·Р°РєСЂРёРІР°С”С‚СЊСЃСЏ
 					exit(0);
 				}
-				else if (action == 1) { // користувачу потрібно ввести назву моделі щоб добавиити її в кошик
+				else if (action == 1) { // РєРѕСЂРёСЃС‚СѓРІР°С‡Сѓ РїРѕС‚СЂС–Р±РЅРѕ РІРІРµСЃС‚Рё РЅР°Р·РІСѓ РјРѕРґРµР»С– С‰РѕР± РґРѕР±Р°РІРёРёС‚Рё С—С— РІ РєРѕС€РёРє
 					cout << "Enter name of model: "; 
 					getline(cin, namemodel);
-					if (namemodel == "Iphone 13") { // додання вибраних моделів до кошика
+					if (namemodel == "Iphone 13") { // РґРѕРґР°РЅРЅСЏ РІРёР±СЂР°РЅРёС… РјРѕРґРµР»С–РІ РґРѕ РєРѕС€РёРєР°
 						cart += 5000;
 
 					}
@@ -71,13 +71,13 @@ int main()
 						continue;
 					}
 				}
-				else if (action == 2) {// процес оформлення замовлення
+				else if (action == 2) {// РїСЂРѕС†РµСЃ РѕС„РѕСЂРјР»РµРЅРЅСЏ Р·Р°РјРѕРІР»РµРЅРЅСЏ
 					system("cls");
 					cout << "The total value of your goods: " << cart << endl;  
 					cout << "Enter the shipping address:";
 					getline(cin, adress);
 					
-					cout << "Choose a payment method(make a difference-0, pay by card-1): ";// оплата товару
+					cout << "Choose a payment method(make a difference-0, pay by card-1): ";// РѕРїР»Р°С‚Р° С‚РѕРІР°СЂСѓ
 					cin >> paymethod;
 					if (paymethod == 0) {
 						cart = 0;
